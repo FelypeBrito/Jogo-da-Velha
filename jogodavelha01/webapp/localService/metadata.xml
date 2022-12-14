@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZJOGODAVELHA_FB_SRV" xml:lang="pt" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Jogo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Contador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jogador1C" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Descricao" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 caracteres" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jogador2C" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vez" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Finalizado" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Campo de seleção" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jogador1" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jogador2" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ganhador" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo1" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo2" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo3" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo4" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo5" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo6" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo7" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo8" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo9" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Jogadas" Relationship="ZJOGODAVELHA_FB_SRV.JogoToJogada" FromRole="FromRole_JogoToJogada" ToRole="ToRole_JogoToJogada" sap:label="Jogadas"/>
+            </EntityType>
+            <EntityType Name="ItemJogo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Contador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Data" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Data" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Hora" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jogador" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Valor" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo1" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo2" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo3" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo4" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo5" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo6" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo7" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo8" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campo9" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Código de um caractere" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="JogoToJogada" sap:content-version="1">
+                <End Type="ZJOGODAVELHA_FB_SRV.Jogo" Multiplicity="1" Role="FromRole_JogoToJogada"/>
+                <End Type="ZJOGODAVELHA_FB_SRV.ItemJogo" Multiplicity="*" Role="ToRole_JogoToJogada"/>
+            </Association>
+            <EntityContainer Name="ZJOGODAVELHA_FB_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="JogoSet" EntityType="ZJOGODAVELHA_FB_SRV.Jogo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ItemJogoSet" EntityType="ZJOGODAVELHA_FB_SRV.ItemJogo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="JogoToJogada_AssocSet" Association="ZJOGODAVELHA_FB_SRV.JogoToJogada" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="JogoSet" Role="FromRole_JogoToJogada"/>
+                    <End EntitySet="ItemJogoSet" Role="ToRole_JogoToJogada"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://lnl-s4h.opustech.com.br:5200/sap/opu/odata/sap/ZJOGODAVELHA_FB_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://lnl-s4h.opustech.com.br:5200/sap/opu/odata/sap/ZJOGODAVELHA_FB_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
