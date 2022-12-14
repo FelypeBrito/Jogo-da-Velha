@@ -22,21 +22,21 @@
         <VBox id="vboxConteudoPagina">
         
         <HBox>
-        <Button text="{Campo1}"/>
-        <Button text="{Campo2}"/>
-        <Button text="{Campo3}"/>
+        <Button text="{Campo1}" class="sapUiSmallMarginEnd" press="onPressButton"/>
+        <Button text="{Campo2}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
+        <Button text="{Campo3}"  press="onPressButton"/>
         </HBox>
 
          <HBox>
-        <Button text="{Campo4}"/>
-        <Button text="{Campo5}"/>
-        <Button text="{Campo6}"/>
+        <Button text="{Campo4}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
+        <Button text="{Campo5}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
+        <Button text="{Campo6}"  press="onPressButton"/>
         </HBox>
 
          <HBox>
-        <Button text="{Campo7}"/>
-        <Button text="{Campo8}"/>
-        <Button text="{Campo9}"/>
+        <Button text="{Campo7}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
+        <Button text="{Campo8}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
+        <Button text="{Campo9}"  press="onPressButton"/>
         </HBox>
 
         
