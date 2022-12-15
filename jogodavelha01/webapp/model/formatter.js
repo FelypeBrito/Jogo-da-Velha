@@ -15,6 +15,21 @@ sap.ui.define([], function () {
             }
 
             return parseFloat(sValue).toFixed(2);
+        },
+        setVezImagem: function(sVez){
+            switch(sVez) {
+                case "X":
+                    return '../img/X.jpg';
+                case "O":
+                 return '../img/O.jpg';
+
+                 default:
+                    return '../img/Branco.jpg';
+
+
+            }
+
+
         }
     };
 });

@@ -14,32 +14,147 @@
                 level="H2"/>
         </semantic:titleHeading>
         <semantic:headerContent>
-            <ObjectAttribute title="{i18n>priceTitle}"/>
+            <ObjectAttribute title="Status" text= "{= ${Finalizado} === true ? 'Finalizado' : 'Aberto'}"/>
             <ObjectNumber />
         </semantic:headerContent>
         <semantic:content>
 
         <VBox id="vboxConteudoPagina">
-        
+         <Title
+                text="{ID}"
+                level="H2"/>
         <HBox>
-        <Button text="{Campo1}" class="sapUiSmallMarginEnd" press="onPressButton"/>
-        <Button text="{Campo2}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
-        <Button text="{Campo3}"  press="onPressButton"/>
+<!-- <Button text="{Campo2}" class="sapUiSmallMarginEnd"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+        <Button text="{Campo3}"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/> -->
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo1',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        alt = "{Campo1}"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo2',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        alt = "{Campo2}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo3',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        alt = "{Campo3}"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+       
+        </HBox>
+
+        <HBox>
+         <!-- <Button text="{Campo4}" class="sapUiSmallMarginEnd"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+        <Button text="{Campo5}" class="sapUiSmallMarginEnd"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+        <Button text="{Campo6}"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+ -->
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo4',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        alt = "{Campo4}"
+        press="onPressButton"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo5',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        alt = "{Campo5}"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo6',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        alt = "{Campo6}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
         </HBox>
 
          <HBox>
-        <Button text="{Campo4}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
-        <Button text="{Campo5}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
-        <Button text="{Campo6}"  press="onPressButton"/>
-        </HBox>
-
-         <HBox>
-        <Button text="{Campo7}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
-        <Button text="{Campo8}" class="sapUiSmallMarginEnd"  press="onPressButton"/>
-        <Button text="{Campo9}"  press="onPressButton"/>
-        </HBox>
 
         
+       
+<!--    <HBox>
+        <Button text="{Campo7}" class="sapUiSmallMarginEnd"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+        <Button text="{Campo8}" class="sapUiSmallMarginEnd"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+        <Button text="{Campo9}"  press="onPressButton" enabled = "{= ${Finalizado} === true ? false : true}"/>
+        </HBox>
+--> 
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo7',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        alt = "{Campo7}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo8',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        decorative = "false"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        alt = "{Campo8}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        <Image ariaDetails="detailsActiveImage" 
+        src="{
+            path: 'Campo9',
+            formatter: '.formatter.setVezImagem'
+        }"
+        width = "50%"
+        enabled = "{= ${Finalizado} === true ? false : true}"
+        decorative = "false"
+        alt = "{Campo9}"
+        press="onPressButton"
+        ariaHasPopup="Menu" class="sapUiSmallMarginEnd"/>
+
+        </HBox>
 
             <Table
                 id="lineItemsList"

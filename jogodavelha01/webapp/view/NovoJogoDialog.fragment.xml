@@ -1,0 +1,29 @@
+<c:FragmentDefinition
+xmlns="sap.m"
+xmlns:c="sap.ui.core"
+>
+<Dialog
+ id="NovoJogoDialog"
+ xmlns="sap.m" title="Criar Novo Jogo">
+ <VBox>
+    <HBox>
+    <Text text="Descrição do Jogo" id="txtDescNewGame" />
+    <Input id="inpNewDescNewGame" width="50%"/>
+    </HBox>
+
+    <HBox>
+    <Text text="Escolha se caractere" />
+    <Switch state = "true" enabled ="true" id="switchvez" customTextOn ="X"  customTextOff ="O">
+        <layoutData>
+            <FlexItemData growFactor="1"/>
+        </layoutData>
+    </Switch>
+    
+    </HBox>
+  </VBox>
+ <buttons>
+            <Button text="Salvar" press="saveNewGameDialog" />
+            <Button text="Cancelar" press="cancelNewGameDialog" />
+ </buttons>
+</Dialog>
+</c:FragmentDefinition>

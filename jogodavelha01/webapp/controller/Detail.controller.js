@@ -41,41 +41,47 @@ sap.ui.define([
 
         onPressButton: function (oEvent) {
 
-            var button = oEvent.getSource();
-            debugger
-            if(button.getText() == ""){
-           
+            var imgBox = oEvent.getSource()
+            var img = imgBox.getSrc();
 
-            var view = this.getView();
-            var model = view.getModel();
+            if (img == "../img/Branco.jpg") {
+                //var button = oEvent.getSource();
 
-            var bc = this.getView().getBindingContext();
-            var obj = model.getProperty(bc.getPath());
-                
-            var vez = model.getProperty(bc.getPath() + "/Vez");
-            debugger
-             button.setText(vez);
-
-            if (!model.hasPendingChanges()) {
-                MessageToast.show("Sem mudanças para gravar.");
-                return;
-            }
+                //if(button.getText() == ""){
 
 
-            model.submitChanges({
-                success: function (oData) {
+                var view = this.getView();
+                var model = view.getModel();
 
-                    MessageToast.show("Mudanças realizadas.")
-                    this.getView().setBusy(false);
-                }.bind(this),
+                var bc = this.getView().getBindingContext();
+                var obj = model.getProperty(bc.getPath());
 
-                error: function (oData) {
+                var vez = model.getProperty(bc.getPath() + "/Vez");
+                debugger
+                //button.setText(vez);
 
-                    MessageToast.show("Aconteceu um erro.");
-                    console.error(oData);
-                    this.getView().setBusy(false);
+                img = imgBox.setAlt(vez);
+
+                if (!model.hasPendingChanges()) {
+                    MessageToast.show("Sem mudanças para gravar.");
+                    return;
                 }
-            })
+
+
+                model.submitChanges({
+                    success: function (oData) {
+
+                        MessageToast.show("Mudanças realizadas.")
+                        this.getView().setBusy(false);
+                    }.bind(this),
+
+                    error: function (oData) {
+
+                        MessageToast.show("Aconteceu um erro.");
+                        console.error(oData);
+                        this.getView().setBusy(false);
+                    }
+                })
 
 
 

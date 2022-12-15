@@ -7,7 +7,8 @@
     <semantic:SemanticPage
         id="listPage"
         preserveHeaderStateOnScroll="true"
-        toggleHeaderOnTitleClick="false">
+        toggleHeaderOnTitleClick="false"
+        showFooter = "true">
         <semantic:titleHeading>
             <Title
                 id="listPageTitle"
@@ -23,8 +24,8 @@
                 items="{
                     path: '/JogoSet',
                     sorter: {
-                        path: 'Descricao',
-                        descending: false
+                        path: 'ID',
+                        descending: true
                     },
                     groupHeaderFactory: '.createGroupHeader'
                 }"
@@ -66,9 +67,14 @@
                         type="Navigation"
                         press=".onSelectionChange"
                         title="{Descricao}"
+                        intro ="{ID}"
                          />
                 </items>
             </List>
         </semantic:content>
+        <semantic:footerCustomActions>
+
+        <Button text="Criar" press = "onPressCriar"/>
+        </semantic:footerCustomActions>
     </semantic:SemanticPage>
 </mvc:View>
