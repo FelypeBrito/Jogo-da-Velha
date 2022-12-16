@@ -113,10 +113,14 @@ sap.ui.define([
                 success: function (oDados, resposta) {
 
                     var data;
-
                     data = oDados;
-
                     this.getView().getModel().refresh();
+
+                    var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                        oRouter.navTo("object", {
+                        objectId: oDados.ID
+                        }, true)
+
                 }.bind(this),
 
                 error: function (oError) {

@@ -3,8 +3,9 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
     "sap/m/library",
-    "sap/m/MessageToast"
-], function (BaseController, JSONModel, formatter, mobileLibrary, MessageToast) {
+    "sap/m/MessageToast",
+    "sap/m/MessageBox"
+], function (BaseController, JSONModel, formatter, mobileLibrary, MessageToast,MessageBox) {
     "use strict";
 
     // shortcut for sap.m.URLHelper
@@ -41,6 +42,27 @@ sap.ui.define([
 
         onPressButton: function (oEvent) {
 
+            var view = this.getView();
+            var model = view.getModel();
+
+            var bc = this.getView().getBindingContext();
+            var obj = model.getProperty(bc.getPath());
+
+            var globalPath = bc.getPath();
+
+            var boxPath = this.byId("vboxConteudoPagina").getBindingContext().getPath();
+
+            if(globalPath !== boxPath){
+                MessageBox.error("Selecionar entrada mais atual do histórico")
+                return;
+            }
+
+            var finalizado = model.getProperty(bc.getPath() + "/Finalizado");
+
+            if (finalizado) {
+                return;
+            }
+
             var imgBox = oEvent.getSource()
             var img = imgBox.getSrc();
 
@@ -48,13 +70,6 @@ sap.ui.define([
                 //var button = oEvent.getSource();
 
                 //if(button.getText() == ""){
-
-
-                var view = this.getView();
-                var model = view.getModel();
-
-                var bc = this.getView().getBindingContext();
-                var obj = model.getProperty(bc.getPath());
 
                 var vez = model.getProperty(bc.getPath() + "/Vez");
                 debugger
@@ -66,7 +81,6 @@ sap.ui.define([
                     MessageToast.show("Sem mudanças para gravar.");
                     return;
                 }
-
 
                 model.submitChanges({
                     success: function (oData) {
@@ -82,13 +96,37 @@ sap.ui.define([
                         this.getView().setBusy(false);
                     }
                 })
-
-
-
             }
-
         },
 
+        onHistoricoSelected: function (oEvent) {
+
+            var v = this.getView();
+            var m = v.getModel();
+
+            var globalPath = this.getView().getBindingContext().getPath();
+
+            var historyItens = m.getData(globalPath + "/Jogadas")
+
+            var oSelectedItem = oEvent.getSource();
+            //se não for modelo default, informar nome do modelo. 
+            //Ex:getBindingContext("pessoa");
+            var oContext = oSelectedItem.getBindingContext();
+            var sPath = oContext.getPath();
+
+            var idx = historyItens.indexOf(sPath.substring(1));
+
+            if(idx == 0){
+                sPath = globalPath;
+            }
+
+            var oProductDetailPanel = this.byId("vboxConteudoPagina");
+            oProductDetailPanel.bindElement({
+                path: sPath,
+                expand:'Jogadas'
+
+            });
+        },
 
 
 
@@ -170,6 +208,10 @@ sap.ui.define([
 
             this.getView().bindElement({
                 path: sObjectPath,
+                parameters: {
+                    expand: "Jogadas"
+
+                },
                 events: {
                     change: this._onBindingChange.bind(this),
                     dataRequested: function () {

@@ -159,7 +159,7 @@
             <Table
                 id="lineItemsList"
                 width="auto"
-                items="{ItemJogoSet}"
+                items="{Jogadas}"
                 updateFinished=".onListUpdateFinished"
                 noDataText="{i18n>detailLineItemTableNoDataText}"
                 busyIndicatorDelay="{detailView>/lineItemTableDelay}">
@@ -174,21 +174,45 @@
                 </headerToolbar>
                 <columns>
                     <Column>
-                        <Text text="{i18n>detailLineItemTableIDColumn}"/>
+                        <Text text="ID do Jogo"/>
                     </Column>
                     <Column
                         minScreenWidth="Tablet"
                         demandPopin="true"
                         hAlign="End">
-                        <Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+                        <Text text="Data"/>
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End">
+                        <Text text="Hora"/>
+                    </Column>
+                    
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="End">
+                        <Text text="Jogador"/>
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem>
+                    <ColumnListItem type ="Active" press = "onHistoricoSelected">
                         <cells>
                             <ObjectIdentifier
                                 title="{ID}"
                                 text="{ID}"/>
+
+                                <ObjectAttribute text="{
+                                    path: 'Data',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions:{
+                                        style: 'short',
+                                        UTC: true
+                                    }
+                                }"/>
+                                <ObjectAttribute text="{Hora}"/>
+                                <ObjectAttribute text="{Jogador}"/>
                             <ObjectNumber />
                         </cells>
                     </ColumnListItem>
