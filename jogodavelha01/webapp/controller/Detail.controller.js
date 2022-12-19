@@ -5,7 +5,7 @@ sap.ui.define([
     "sap/m/library",
     "sap/m/MessageToast",
     "sap/m/MessageBox"
-], function (BaseController, JSONModel, formatter, mobileLibrary, MessageToast,MessageBox) {
+], function (BaseController, JSONModel, formatter, mobileLibrary, MessageToast, MessageBox) {
     "use strict";
 
     // shortcut for sap.m.URLHelper
@@ -52,7 +52,7 @@ sap.ui.define([
 
             var boxPath = this.byId("vboxConteudoPagina").getBindingContext().getPath();
 
-            if(globalPath !== boxPath){
+            if (globalPath !== boxPath) {
                 MessageBox.error("Selecionar entrada mais atual do histórico")
                 return;
             }
@@ -63,6 +63,14 @@ sap.ui.define([
                 return;
             }
 
+            
+            var status = model.getProperty(bc.getPath() + "/Status");
+
+            if (status !== 'A') {
+                MessageBox.error("Aguardando Ingressar segundo jogador!")
+                return;
+            }
+            
             var imgBox = oEvent.getSource()
             var img = imgBox.getSrc();
 
@@ -116,17 +124,39 @@ sap.ui.define([
 
             var idx = historyItens.indexOf(sPath.substring(1));
 
-            if(idx == 0){
+            if (idx == 0) {
                 sPath = globalPath;
             }
 
             var oProductDetailPanel = this.byId("vboxConteudoPagina");
             oProductDetailPanel.bindElement({
                 path: sPath,
-                expand:'Jogadas'
+                expand: 'Jogadas'
 
             });
         },
+        onPressIngressar: function (oEvent) {
+
+            var oSource = oEvent.getSource();
+            var bc = oSource.getParent().getBindingContext();
+            var obj = bc.getObject();
+            var oModel = this.getView().getModel();
+            MessageToast.show("Alterando Status");
+            oModel.callFunction("/Ingressar", {
+                method: "POST",
+                urlParameters: {
+                    ID: obj.ID
+                },
+                success: function (oData, response) { },
+                error: function (oError) { }
+            })
+        },
+
+
+
+
+
+
 
 
 
@@ -182,6 +212,13 @@ sap.ui.define([
          * @private
          */
         _onObjectMatched: function (oEvent) {
+
+            var boxPath = this.byId("vboxConteudoPagina");
+
+            //Reinicializa o vbox
+            boxPath.unbindElement();
+
+
             var sObjectId = oEvent.getParameter("arguments").objectId;
             this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
             this.getModel().metadataLoaded().then(function () {

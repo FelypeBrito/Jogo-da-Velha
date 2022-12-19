@@ -68,7 +68,9 @@
                         press=".onSelectionChange"
                         title="{Descricao}"
                         intro ="{ID}"
-                         />
+                         >
+                         <ObjectAttribute text="{StatusJogo}"/>
+                         </ObjectListItem>
                 </items>
             </List>
         </semantic:content>

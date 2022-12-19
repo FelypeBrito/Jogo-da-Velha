@@ -19,7 +19,10 @@
         </semantic:headerContent>
         <semantic:content>
 
-        <VBox id="vboxConteudoPagina">
+        <VBox id="vboxConteudoPagina" enabled ="{= ${Finalizado} === true ? false : true}">
+
+    <Button text="Ingressar" press="onPressIngressar"/>
+
          <Title
                 text="{ID}"
                 level="H2"/>
