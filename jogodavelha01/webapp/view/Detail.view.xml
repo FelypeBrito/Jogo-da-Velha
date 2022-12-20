@@ -211,7 +211,8 @@
                                     type: 'sap.ui.model.type.Date',
                                     formatOptions:{
                                         style: 'short',
-                                        UTC: true
+                                        UTC: true,
+                                        pattern : 'dd/MM/yy'
                                     }
                                 }"/>
                                 <ObjectAttribute text="{

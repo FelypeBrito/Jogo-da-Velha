@@ -67,10 +67,9 @@
                         type="Navigation"
                         press=".onSelectionChange"
                         title="{Descricao}"
-                        intro ="{ID}"
-                         >
+                        intro ="{ID}">
                          <ObjectAttribute text="{Status}"/>
-                         </ObjectListItem>
+                    </ObjectListItem>
                 </items>
             </List>
         </semantic:content>

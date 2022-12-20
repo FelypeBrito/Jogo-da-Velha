@@ -102,32 +102,22 @@ sap.ui.define([
             var dados = {
                 Descricao: desc,
                 Vez: vezChar,
-
-
-
-
             };
 
             model.create("/JogoSet", dados, {
-
                 success: function (oDados, resposta) {
-
                     var data;
                     data = oDados;
                     this.getView().getModel().refresh();
-
                     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                        oRouter.navTo("object", {
+                    oRouter.navTo("object", {
                         objectId: oDados.ID
-                        }, true)
+                    }, true)
 
                 }.bind(this),
-
                 error: function (oError) {
 
-
                     var erro;
-
                     data = oError;
                 }.bind(this),
             });
