@@ -12,7 +12,7 @@
         <semantic:titleHeading>
             <Title
                 id="listPageTitle"
-                text="{listView>/title}"
+                text="Jogo da Velha"
                 level="H2"/>
         </semantic:titleHeading>
         <semantic:content>

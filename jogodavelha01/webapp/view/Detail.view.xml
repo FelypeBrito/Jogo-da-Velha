@@ -170,7 +170,7 @@
                     <Toolbar>
                         <Title
                             id="lineItemsTitle"
-                            text="{detailView>/lineItemListTitle}"
+                            text="Histórico de Jogadas"
                             titleStyle="H3"
                             level="H3"/>
                     </Toolbar>
@@ -214,7 +214,13 @@
                                         UTC: true
                                     }
                                 }"/>
-                                <ObjectAttribute text="{Hora}"/>
+                                <ObjectAttribute text="{
+                                    path: 'Hora',
+                                    type: 'sap.ui.model.odata.type.Time',
+                                    formatOptions: {
+                                        pattern : 'HH:mm:ss'
+                                    }
+                                    }"/>
                                 <ObjectAttribute text="{Jogador}"/>
                             <ObjectNumber />
                         </cells>
